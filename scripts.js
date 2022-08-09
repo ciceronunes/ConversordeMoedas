@@ -3,12 +3,14 @@ const select = document.getElementById('converterPara')
 
 const valorDoDolar = 7.8
 const valorDoEuro = 12
-const valorDoBitcoin = 120209.72
+const valorDoBitcoin = 120209.72;
 
 const converter = () => {
-    const valorparaconverter = document.getElementById('valorparaconverter').value
+    let valorparaconverter = document.getElementById('valorparaconverter').value;
     const valorOrigem = document.getElementById('valorOrigem')
     const valorDestino = document.getElementById('valorDestino')
+
+    valorparaconverter = valorparaconverter.replaceAll(".", "").replace(",", ".")
 
     valorOrigem.innerHTML = new Intl.NumberFormat('pt-Br', {
         style: 'currency',
