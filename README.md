@@ -1,23 +1,24 @@
-# README EM PRODUÇÃO
+# Conversor de Moedas
 
-<img class="tela" src="./assets/telaCard.PNG" alt="screen">
+<img class="tela" src="./assets/Tela.PNG" alt="screen">
 
-> Card NFT.
-## 😄 O que usamos nesse projeto
-Este projeto foi proposto pelo site Frontend Mentor onde o desafio seria replicar o card NFT.
+Link da Pagina
 
-Poderiamos ter aplicado outras formatações no mesmo mas escolhemos editar futuramente e acrescentar mais funçoes ao mesmo.
+>https://ciceronunes.github.io/ConversordeMoedas/
+## 😄 O que é o projeto?
+Este projeto foi desenvolvido no comunidade DevClub.
 
-## Ajustes e melhorias
+A função do mesmo é converter de Real para ( Bitcoin, Dolar ou Euro) conforme mudamos a moeda "destino" e façamos a conversão.
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
+## O que Usamos, Ajustes e melhorias
 
-- [ ] HTML
-- [x] CSS
-- [x] Responsividade<br>
-    Manter a harmonização da page conforme o tamanho da tela do dispositivo muda.
-- [x] Javascript<br>
-    Criar uma pagina que faça o vinculo com o QR Code..
+O que poderemos mudar/melhorar.
+
+- [x] CSS<br>
+    Implementar um "botão" para quando clicado alterar a cor de fundo.
+- [x] Consumo de API<br>
+    O sistema ainda não está buscando o valor atual da moeda selecionada para fazer a conversão.
+    
 
 ## 🤝 Colaboradores
 
