@@ -18,14 +18,14 @@
             <h1>CodeClub Convert Money</h1>
         </header>
         <main>
-            <label for="converterDe">Converte <strong>de</strong>
-                <select name="converterDe" id="converterDe">
+            <label for="convertFrom">Converte <strong>de</strong>
+                <select name="convertFrom" id="convertFrom">
                     <option>R$ Real Brasileiro</option>
                 </select>
             </label>
 
-            <label for="converterPara">Converte <strong>para</strong>
-                <select name="converterPara" id="converterPara">
+            <label for="convertTo">Converte <strong>para</strong>
+                <select name="convertTo" id="convertTo">
                     <option>US$ Dolar Americano</option>
                     <option>€ Euro</option>
                     <option>₿ Bitcoin</option>
@@ -33,24 +33,24 @@
             </label>
 
             <label for="valor"><strong>Valor</strong>
-                <input id="valorparaconverter" name="valor" placeholder="R$ 10.000,00" onkeyup="k(this)">
+                <input id="valueToBeConverted" name="value" placeholder="R$ 10.000,00">
             </label>
 
             <button type="button">Converter</button>
 
             <section>
-                <div class="conversao">
+                <div class="conversion">
                     <img src="./assets/BRASIL.svg" alt="Bandeira do Brasil">
-                    <p class="textoMoedaConversao">Real</p>
-                    <p id="valorOrigem" class="valueMoedaConversao">R$ 10.000,00</p>
+                    <p class="currencyInFull">Real</p>
+                    <p id="informedValue" class="value">R$ 10.000,00</p>
                 </div>
 
-                <img id="seta" src="./assets/Vector.png" alt="Seta para Baixo">
+                <img id="arrow" src="./assets/Vector.png" alt="Seta para Baixo">
 
-                <div class="conversao">
-                    <img id="bandeiraDestino" src="./assets/USA.svg" alt="Bandeira USA">
-                    <p class="textoMoedaConversao" id="textoMoedaConversao">Dolar Americano</p>
-                    <p id="valorDestino" class="valueMoedaConversao">US$ 2.000,00</p>
+                <div class="conversion">
+                    <img id="flag" src="./assets/USA.svg" alt="Bandeira USA">
+                    <p class="currencyInFull" id="currencyInFull">Dolar Americano</p>
+                    <p id="convertedValue" class="value">US$ 2.000,00</p>
                 </div>
             </section>
         </main>

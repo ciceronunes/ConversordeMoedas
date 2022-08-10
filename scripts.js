@@ -1,94 +1,90 @@
 const button = document.getElementsByTagName('button')[0]
-const select = document.getElementById('converterPara')
+const select = document.getElementById('convertTo')
+const input = document.getElementById('valueToBeConverted')
 
-const valorDoDolar = 7.8
-const valorDoEuro = 12
-const valorDoBitcoin = 120209.72;
+const dollarValue = 7.8
+const euroValue = 12
+const bitcoinValue = 120209.72;
 
-const converter = () => {
-    let valorparaconverter = document.getElementById('valorparaconverter').value;
-    const valorOrigem = document.getElementById('valorOrigem')
-    const valorDestino = document.getElementById('valorDestino')
+const inputmask = () => {
+    let inputValue = document.getElementById('valueToBeConverted')
 
-    valorparaconverter = valorparaconverter.replaceAll(".", "").replace(",", ".")
+    let convertedValue = inputValue.value.replace(/\D/g, '');
+    convertedValue = (convertedValue / 100).toFixed(2).replace(".", ",").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    inputValue.value = convertedValue;
+}
 
-    valorOrigem.innerHTML = new Intl.NumberFormat('pt-Br', {
+const convertCurrency = () => {
+    let valueToBeConverted = document.getElementById('valueToBeConverted').value;
+    const informedValue = document.getElementById('informedValue')
+    const convertedValue = document.getElementById('convertedValue')
+
+    valueToBeConverted = valueToBeConverted.replaceAll(".", "").replace(",", ".")
+
+    informedValue.innerHTML = new Intl.NumberFormat('pt-Br', {
         style: 'currency',
         currency: 'BRL'
-    }).format(valorparaconverter)
+    }).format(valueToBeConverted)
 
     if (select.value === 'US$ Dolar Americano') {
-        valorDestino.innerHTML = new Intl.NumberFormat('en-US', {
+        convertedValue.innerHTML = new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD'
-        }).format(valorparaconverter / valorDoDolar)
+        }).format(valueToBeConverted / dollarValue)
     }
 
     if (select.value === '€ Euro') {
-        valorDestino.innerHTML = new Intl.NumberFormat('de-DE', {
+        convertedValue.innerHTML = new Intl.NumberFormat('de-DE', {
             style: 'currency',
             currency: 'EUR'
-        }).format(valorparaconverter / valorDoEuro)
+        }).format(valueToBeConverted / euroValue)
     }
 
     if (select.value === '₿ Bitcoin') {
-        valorDestino.innerHTML = new Intl.NumberFormat('de-DE', {
+        convertedValue.innerHTML = new Intl.NumberFormat('de-DE', {
             maximumSignificantDigits: 2
-        }).format(valorparaconverter / valorDoBitcoin)
-
+        }).format(valueToBeConverted / bitcoinValue)
     }
 }
 
+const changeTheCurrency = () => {
 
-const mudeiPaisDestino = () => {
+    const currencyInFuçç = document.getElementById('currencyInFull')
+    const flag = document.getElementById('flag')
+    const convertedValue = document.getElementById('convertedValue')
+    const informedValue = document.getElementById('informedValue')
 
-    const textoMoedaConversao = document.getElementById('textoMoedaConversao')
-    const bandeiraConversão = document.getElementById('bandeiraDestino')
-    const valorDestino = document.getElementById('valorDestino')
-    const valorOrigem = document.getElementById('valorOrigem')
-
-    valorOrigem.innerHTML = new Intl.NumberFormat('pt-Br', {
+    informedValue.innerHTML = new Intl.NumberFormat('pt-Br', {
         style: 'currency',
         currency: 'BRL'
     }).format(0)
 
     if (select.value === 'US$ Dolar Americano') {
-        textoMoedaConversao.innerHTML = 'US$ Dolar Americano'
-        bandeiraConversão.src = "./assets/USA.svg"
-        valorDestino.innerHTML = new Intl.NumberFormat('en-US', {
+        currencyInFuçç.innerHTML = 'US$ Dolar Americano'
+        flag.src = "./assets/USA.svg"
+        convertedValue.innerHTML = new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD'
         }).format(0)
     }
     if (select.value === '€ Euro') {
-        textoMoedaConversao.innerHTML = 'Euro'
-        bandeiraConversão.src = "./assets/EURO.svg"
-        valorDestino.innerHTML = new Intl.NumberFormat('de-DE', {
+        currencyInFuçç.innerHTML = 'Euro'
+        flag.src = "./assets/EURO.svg"
+        convertedValue.innerHTML = new Intl.NumberFormat('de-DE', {
             style: 'currency',
             currency: 'EUR'
         }).format(0)
     }
     if (select.value === '₿ Bitcoin') {
-        textoMoedaConversao.innerHTML = 'Bitcoin'
-        bandeiraConversão.src = "./assets/BITCOIN.svg"
-        valorDestino.innerHTML = new Intl.NumberFormat('de-DE', {
+        currencyInFuçç.innerHTML = 'Bitcoin'
+        flag.src = "./assets/BITCOIN.svg"
+        convertedValue.innerHTML = new Intl.NumberFormat('de-DE', {
             style: 'currency',
             currency: 'BTC'
         }).format(0)
-
     }
 }
 
-function k(i) {
-    
-    let v = i.value.replace(/\D/g, '');
-    v = (v / 100).toFixed(2); // + ''
-    v = v.replace(".", ",");
-    v = v.replace(/(\d)(\d{3})(\d{3})(\d{3}),/g, "$1.$2.$3.$4,");
-    v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
-    v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
-    i.value = v;
-}
-
-button.addEventListener('click', converter)
-select.addEventListener('change', mudeiPaisDestino)
+button.addEventListener('click', convertCurrency)
+select.addEventListener('change', changeTheCurrency)
+input.addEventListener('keyup', inputmask)

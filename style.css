@@ -13,7 +13,7 @@ body {
     max-width: 375px;
     background-color: #F4F4F4;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 
 header {
@@ -94,14 +94,14 @@ section {
     padding: 10px;
 }
 
-.textoMoedaConversao {
+.currencyInFull {
     font-size: 14px;
     line-height: 18px;
     font-weight: 400;
     color: #777777;
 }
 
-.valueMoedaConversao {
+.value {
     font-size: 20px;
     font-weight: 700;
     line-height: 18px;
@@ -109,6 +109,6 @@ section {
 
 }
 
-#seta {
+#arrow {
     margin: 15px 0;
 }
